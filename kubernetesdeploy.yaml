@@ -18,7 +18,7 @@ spec:
       - name: insure-app-container
         image: ganeshnimmakayala/insure-application:v1
         ports:
-        - containerPort: 8082
+        - containerPort: 8081
 ---
 apiVersion: v1
 kind: Service
@@ -34,4 +34,4 @@ spec:
   ports:
   - nodePort: 31032
     port: 8082
-    targetPort: 8082
+    targetPort: 8081
