@@ -9,7 +9,7 @@ pipeline {
         stage('SCM_Checkout') {
             steps {
                 echo "Perform SCM Checkout"
-                git 'https://github.com/GaneshNimmakayala/Health.git'               
+                git 'https://github.com/GaneshNimmakayala/insure.git'               
             }
         }
         stage('Application Build') {
