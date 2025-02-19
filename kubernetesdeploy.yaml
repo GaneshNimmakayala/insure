@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insure-app
+  labels:
+    app: insure-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: insure-app
+  template:
+    metadata:
+      labels:
+        app: insure-app
+    spec:
+      containers:
+      - name: insure-app-container
+        image: ganeshnimmakayala/insure-application:v1
+        ports:
+        - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: insure-app-service
+  labels:
+    app: insure-app-svc
+spec:
+  selector:
+    app: insure-app
+
+  type: NodePort
+  ports:
+  - nodePort: 31032
+    port: 8082
+    targetPort: 8082
